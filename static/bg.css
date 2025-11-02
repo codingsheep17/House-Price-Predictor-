@@ -1,0 +1,56 @@
+/* ======= PAGE BACKGROUND (MATCH FOOTER THEME) ======= */
+body {
+  background: linear-gradient(135deg, #101018, #161624, #1c1c2f);
+  color: #e8e8f0;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Subtle glowing header or title text */
+h1, h2, h3 {
+  color: #00bfff;
+  text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+  letter-spacing: 1px;
+}
+
+/* Section (like main content area) */
+main {
+  flex: 1;
+  padding: 40px 20px;
+  text-align: center;
+  background: radial-gradient(circle at top, rgba(0, 191, 255, 0.05), transparent 60%),
+              linear-gradient(135deg, #12121e, #18182a, #1d1d31);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 40px rgba(0, 191, 255, 0.05);
+}
+
+/* Buttons to match the footer vibe */
+button, .btn {
+  background: linear-gradient(90deg, #00bfff, #ff00ff);
+  border: none;
+  padding: 10px 20px;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.4);
+}
+
+button:hover, .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.8);
+}
+
+/* Optional glowing divider line */
+hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,191,255,0.4), transparent);
+  margin: 30px 0;
+}

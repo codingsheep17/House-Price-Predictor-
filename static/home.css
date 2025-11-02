@@ -1,0 +1,177 @@
+:root{
+  --nav-height: 64px;    /* adjust to match your actual navbar height */
+  --footer-height: 56px; /* adjust to match your actual footer height */
+  --available-h: calc(100vh - var(--nav-height) - var(--footer-height));
+}
+*{box-sizing: border-box;}
+
+/* ===== Compact prediction form (single box, no jumps) ===== */
+/* Home page layout fix — keeps footer at original height */
+.predict-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - var(--nav-height) - var(--footer-height) - 40px);
+  /* leaves clean space for footer */
+  padding: 20px 0;
+  background: linear-gradient(135deg, #0a0a14, #14132a, #191932);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* single minimal glowing box */
+.predict-form {
+  width: min(720px, 95%);
+  background: #0f0f1f;
+  border: 1px solid rgba(0,191,255,0.35);
+  border-radius: 12px;
+  box-shadow: 0 0 14px rgba(0,191,255,0.45);
+  padding: 18px 22px;
+  color: #e8e8f0;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: stretch;
+  margin: 0 auto;
+}
+
+
+/* title: small top margin so it doesn't push up */
+.predict-form h2 {
+  margin: 0;                          /* remove default top margin */
+  padding: 6px 0 6px 0;
+  text-align: center;
+  color: #00bfff;
+  font-size: 1.25rem;
+  text-shadow: 0 0 8px rgba(0,191,255,0.6);
+}
+
+/* compact grid: single column, but can become two columns on wide screens */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;         /* single column default */
+  gap: 8px 12px;                      /* less vertical spacing */
+  margin: 0;
+}
+
+/* two-column on wide screens (optional) */
+@media (min-width: 880px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;   /* side-by-side on large screens */
+    gap: 10px 16px;
+  }
+}
+
+/* label / control style — compact */
+.form-group { text-align: left; margin: 0; }
+.form-group label {
+  display: block;
+  color: #bcbce0;
+  font-size: 0.82rem;
+  margin-bottom: 6px;
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,191,255,0.28);
+  background: rgba(255,255,255,0.03);
+  color: #e8e8f0;
+  font-size: 0.88rem;
+  outline: none;
+}
+
+/* visual for select options */
+.form-group select option {
+  background: #0f0f1f;
+  color: #e8e8f0;
+}
+
+/* small hint text under fields (if needed) */
+.field-hint { font-size: 0.75rem; color: #9aa0c8; margin-top: 4px; }
+
+/* predictable space before button so it won't stick to the select */
+.button-row { margin-top: 8px; }
+
+/* predict button compact */
+.btn-predict {
+  background: linear-gradient(90deg, #00bfff, #ff00ff);
+  border: none;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 0 14px rgba(0,191,255,0.35);
+}
+
+/* --- Fix spacing between main content and footer --- */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;            /* remove default layout padding */
+  margin: 0;             /* prevent extra vertical space */
+  background: transparent;
+  min-height: calc(100vh - var(--nav-height) - var(--footer-height));
+  box-sizing: border-box;
+}
+
+/* --- Your predictor container (sits inside main) --- */
+.predict-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: linear-gradient(135deg, #0a0a14, #14132a, #191932);
+  padding: 0;                  /* kill the padding */
+  margin: 0 auto;              /* perfectly centered */
+  box-sizing: border-box;
+  flex-grow: 1;
+}
+
+/* --- Result box styles (for prediction or errors) --- */
+.result-box {
+  margin-top: 14px;
+  padding: 10px 12px;
+  text-align: center;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 0 10px rgba(0,191,255,0.3);
+  animation: fadeIn 0.5s ease;
+}
+
+/* success (predicted price) */
+.result-box.success {
+  color: #00ffcc;
+  background: rgba(0,255,170,0.08);
+  border: 1px solid rgba(0,255,170,0.4);
+  text-shadow: 0 0 6px rgba(0,255,170,0.5);
+}
+
+/* error (invalid data) */
+.result-box.error {
+  color: #ff5f7e;
+  background: rgba(255,0,100,0.08);
+  border: 1px solid rgba(255,0,120,0.35);
+  text-shadow: 0 0 6px rgba(255,80,130,0.5);
+}
+
+/* smooth fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* reduce vertical footprint on small screens */
+@media (max-width:480px) {
+  .predict-form { padding: 12px; gap: 8px; }
+  .predict-form h2 { font-size: 1.05rem; }
+  .form-group label { font-size: 0.78rem; }
+  .form-group input, .form-group select { font-size: 0.85rem; padding: 8px; }
+}

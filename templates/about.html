@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+{% block css_tags %}
+<link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+{% endblock %}
+
+{% block title %}About - Information{% endblock %}
+
+{% block navbar %}
+<nav>
+    <div class="nav-left">
+        <h1>HPP</h1>
+        <ul class="main-links">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('history') }}">History</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+{% endblock %}
+
+{% block body %}
+<main>
+    <section class="about-container">
+        <div class="about-card">
+            <h2>🏡 About House Price Predictor</h2>
+            <p>
+                The <strong>House Price Predictor</strong> is a web-based Machine Learning application built to estimate
+                housing prices in California using real-world data.
+                It uses the <strong>Linear Regression algorithm</strong> to predict prices based on features like median
+                income, average rooms, house age, and more.
+            </p>
+
+            <h3>🧠 Technologies Used</h3>
+            <ul>
+                <li><strong>Python</strong> – The core programming language used for model training and backend logic.
+                </li>
+                <li><strong>Flask</strong> – A lightweight web framework that powers the backend and connects the ML
+                    model to the frontend.</li>
+                <li><strong>Scikit-learn</strong> – Provides the Linear Regression algorithm and tools for data
+                    preprocessing and evaluation.</li>
+                <li><strong>Pandas & NumPy</strong> – Used for data manipulation, cleaning, and analysis.</li>
+                <li><strong>HTML5</strong> – Structures the web pages and content displayed to users.</li>
+                <li><strong>CSS3</strong> – Styles the interface with gradients, glowing effects, and responsive layout.
+                </li>
+                <li><strong>Jinja2</strong> – Handles dynamic rendering of Flask templates with variables and logic.
+                </li>
+                <li><strong>MySQL</strong> – Stores user authentication and historical prediction data securely.</li>
+            </ul>
+
+            <p class="closing">
+                This project combines <strong>Machine Learning</strong> and <strong>Web Development</strong> to
+                demonstrate how predictive models can be integrated into real-world applications beautifully.
+            </p>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block css_tags %}
+<link rel="stylesheet" href="{{ url_for('static', filename='log.css') }}">
+{% endblock %}
+
+{% block title %}Login - Welcome Back{% endblock title %}
+
+{% block navbar %}
+<nav>
+    <div class="nav-left">
+        <h1>HPP</h1>
+    </div>
+
+    <ul class="auth-links">
+        <li><a href="{{ url_for('signup') }}">SignUp</a></li>
+    </ul>
+</nav>
+{% endblock %}
+
+{% block body %}
+<div class="login-page">
+    <form method="post" class="login-form">
+        <h3>Login</h3>
+        <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn">Login</button>
+        {% if error %}
+        <div class="alert" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}

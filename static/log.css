@@ -1,0 +1,110 @@
+/* ======= LOGIN PAGE STYLES (FINAL NO SCROLL) ======= */
+body, html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* removes scroll bar globally */
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top, rgba(0,191,255,0.05), transparent 60%),
+              linear-gradient(135deg, #0b0b15, #12122a, #181830);
+}
+
+/* ======= LOGIN FORM CONTAINER ======= */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* take remaining space only */
+  padding: 0;
+}
+
+.login-form {
+  background: linear-gradient(145deg, #0d0d18, #151528);
+  border: 1px solid rgba(0, 191, 255, 0.15);
+  border-radius: 14px;
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.25),
+              0 0 35px rgba(255, 0, 255, 0.08);
+  padding: 25px 30px;
+  width: 300px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+/* ======= LOGIN TITLE ======= */
+.login-form h3 {
+  color: #00bfff;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+}
+
+/* ======= INPUT FIELDS ======= */
+.form-control {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 0 auto 14px auto;  /* ✅ centers inputs horizontally */
+  display: block;            /* ✅ ensures margin auto works */
+  border: 1px solid rgba(0, 191, 255, 0.25);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #e8e8f0;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 0 6px rgba(0, 191, 255, 0.05);
+  text-align: left;          /* keeps typing aligned normally */
+  box-sizing: border-box;    /* ✅ keeps input width aligned with form edges */
+}
+
+
+.form-control:focus {
+  border-color: #00bfff;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* ======= BUTTON ======= */
+.btn {
+  background: linear-gradient(90deg, #00bfff, #ff00ff);
+  border: none;
+  color: #fff;
+  padding: 10px 0;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-shadow: 0 0 12px rgba(0, 191, 255, 0.3);
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #00ffff, #ff00ff);
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+/* ======= ALERT MESSAGE ======= */
+.alert {
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  color: #ff7070;
+  padding: 8px;
+  margin-top: 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 480px) {
+  .login-form {
+    width: 85%;
+    padding: 20px;
+  }
+}

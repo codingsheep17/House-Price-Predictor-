@@ -1,0 +1,93 @@
+/* ======= ABOUT PAGE (Ultra Compact — Single Glow Box, No Scroll) ======= */
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* stay near top, not full height */
+  background: none;
+  padding: 20px 0; /* smaller top/bottom space */
+  overflow: hidden; /* ✅ no scrollbar */
+}
+
+/* Smaller glowing box */
+.about-card {
+  background: #121222;
+  border: 2px solid #00bfff;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 191, 255, 0.6);
+  padding: 10px 25px; /* ✅ reduced inner padding */
+  width: 85%;
+  max-width: 1000px;
+  color: #e8e8f0;
+  text-align: center;
+  line-height: 1.3;
+  height: auto; /* compact height */
+}
+
+/* Headings */
+.about-card h2 {
+  color: #00bfff;
+  font-size: 1.3rem;
+  margin-bottom: 4px; /* tighter space */
+  text-shadow: 0 0 6px rgba(0, 191, 255, 0.6);
+}
+
+.about-card h3 {
+  color: #ff00ff;
+  font-size: 0.95rem;
+  margin: 6px 0 4px;
+  text-shadow: 0 0 4px rgba(255, 0, 255, 0.5);
+}
+
+/* Text */
+.about-card p {
+  color: #c9c9e5;
+  font-size: 0.85rem;
+  margin: 2px 0; /* compact lines */
+}
+
+/* List styling */
+.about-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 4px auto; /* reduced spacing */
+  text-align: left;
+  max-width: 700px;
+}
+
+.about-card li {
+  margin: 2px 0; /* tighter list */
+  padding-left: 16px;
+  position: relative;
+  color: #bcbce0;
+  font-size: 0.8rem;
+  line-height: 1.2;
+}
+
+.about-card li::before {
+  content: "⚡";
+  position: absolute;
+  left: 0;
+  color: #00bfff;
+}
+
+/* Closing line */
+.about-card .closing {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: #9a9acb;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-card {
+    width: 90%;
+    padding: 8px 18px;
+  }
+  .about-card h2 {
+    font-size: 1.1rem;
+  }
+  .about-card p, .about-card li {
+    font-size: 0.75rem;
+  }
+}

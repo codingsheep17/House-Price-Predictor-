@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+
+{% block css_tags %}
+<link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+{% endblock %}
+
+{% block title %}Home - Price Prediciton{% endblock %}
+
+{% block navbar %}
+<nav>
+    <div class="nav-left">
+        <h1>HPP</h1>
+        <ul class="main-links">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('history') }}">History</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+{% endblock %}
+
+{% block body %}
+<div class="predict-container">
+    <form class="predict-form" action="/home" method="post" novalidate>
+        <h2>🏠 House Price Predictor</h2>
+
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="income">Annual Income (USD)</label>
+                <input id="income" name="income" type="number" min="15000" placeholder="Min $15,000" required>
+            </div>
+
+            <div class="form-group">
+                <label for="rooms">Total Rooms</label>
+                <input id="rooms" name="rooms" type="number" min="3" max="20" placeholder="3–20" required>
+            </div>
+
+            <div class="form-group">
+                <label for="house_age">House Age (years)</label>
+                <input id="house_age" name="house_age" type="number" min="1" max="30" placeholder="1–30" required>
+            </div>
+
+            <div class="form-group">
+                <label for="bedrooms">Bedrooms</label>
+                <input id="bedrooms" name="bedrooms" type="number" min="1" placeholder="1–rooms" required>
+            </div>
+
+            <div class="form-group">
+                <label for="population">Population in Area</label>
+                <input id="population" name="population" type="number" min="200" max="35000" placeholder="200–35000"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="occupants">People in House</label>
+                <input id="occupants" name="occupants" type="number" min="1" placeholder="1–bedrooms" required>
+            </div>
+
+            <div class="form-group" style="grid-column: 1 / -1;">
+                <label for="city">Select City</label>
+                <select id="city" name="city" required>
+                    <option value="" disabled selected>Select City ▼</option>
+                    <option value="sanfrancisco">San Francisco</option>
+                    <option value="losangeles">Los Angeles</option>
+                    <option value="sandiego">San Diego</option>
+                    <option value="sacramento">Sacramento</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="button-row">
+            <button type="submit" class="btn-predict">Predict Price</button>
+        </div>
+    </form>
+</div>
+<!-- Display Predicted Price -->
+{% if price %}
+<div class="result-box success">
+    💰 Estimated House Price: <strong>${{ "%.2f"|format(price) }}</strong>
+</div>
+{% endif %}
+
+<!-- Display Error Message -->
+{% if error %}
+<div class="result-box error">
+    ⚠️ {{ error }}
+</div>
+{% endif %}
+</form>
+</div>
+{% endblock %}

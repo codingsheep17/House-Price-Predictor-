@@ -1,0 +1,121 @@
+/* ======= FOOTER STYLES ======= */
+footer {
+  background: linear-gradient(135deg, #0a0a0f, #1b1b27, #23233a);
+  color: #e4e4e4;
+  text-align: center;
+  padding: 20px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  font-family: "Poppins", sans-serif;
+  flex-wrap: wrap;
+  z-index: 100;
+}
+
+/* Left, center, and right sections */
+.footer-left span,
+.footer-right span {
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  color: #bcbccf;
+  transition: color 0.3s ease;
+}
+
+.footer-left span:hover,
+.footer-right span:hover {
+  color: #ffffff;
+}
+
+/* Center (icons area) */
+.footer-center {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.footer-center a {
+  color: #bcbccf;
+  font-size: 1.3rem;
+  transition: all 0.3s ease;
+}
+
+.footer-center a:hover {
+  color: #00bfff; /* sky glow effect */
+  transform: scale(1.2) rotate(5deg);
+  text-shadow: 0 0 10px rgba(0, 191, 255, 0.7);
+}
+
+/* Email animation on hover */
+.footer-right span {
+  position: relative;
+  cursor: pointer;
+}
+
+.footer-right span::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background: linear-gradient(90deg, #00bfff, #ff00ff);
+  transition: width 0.4s ease;
+}
+
+.footer-right span:hover::after {
+  width: 100%;
+}
+
+/* Make footer stick to bottom but not overlap content */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* Pushes footer down */
+}
+
+/* Keep footer fixed at bottom when content is short */
+footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* ======= FIX FOOTER WIDTH + REMOVE SLIDER ======= */
+
+/* Make sure body never overflows */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* ✅ removes horizontal scroll */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure footer fits perfectly within screen width */
+footer {
+  box-sizing: border-box; /* ✅ include padding in width */
+  width: 100%;
+  max-width: 100vw;       /* ✅ prevent flex overflow */
+  overflow: hidden;       /* ✅ no visual spill from shadows or borders */
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}

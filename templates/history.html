@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+
+{% block css_tags %}
+<link rel="stylesheet" href="{{ url_for('static', filename='history.css') }}">
+{% endblock %}
+
+{% block title %}History - Past Activities{% endblock title %}
+
+{% block navbar %}
+<nav>
+    <div class="nav-left">
+        <h1>HPP</h1>
+        <ul class="main-links">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('history') }}">History</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+{% endblock %}
+
+{% block body %}
+<div class="history-container">
+    <div class="history-box">
+        <h2>📜 Prediction History</h2>
+
+        {% if history and history|length > 0 %}
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Income ($)</th>
+                    <th>Rooms</th>
+                    <th>House Age</th>
+                    <th>Bedrooms</th>
+                    <th>Population</th>
+                    <th>People</th>
+                    <th>City</th>
+                    <th>Predicted Price ($)</th>
+                    <th>Predicted At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in history %}
+                <tr>
+                    <td>{{ record[0] }}</td> <!-- income -->
+                    <td>{{ record[1] }}</td> <!-- rooms -->
+                    <td>{{ record[2] }}</td> <!-- house_age -->
+                    <td>{{ record[3] }}</td> <!-- bedrooms -->
+                    <td>{{ record[4] }}</td> <!-- population -->
+                    <td>{{ record[5] }}</td> <!-- people_in_house -->
+                    <td>{{ record[6] }}</td> <!-- city -->
+                    <td>{{ record[7] }}</td> <!-- predicted_price -->
+                    <td>{{ record[8] }}</td> <!-- created_at -->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="no-history">
+            <p>😔 No prediction history yet.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

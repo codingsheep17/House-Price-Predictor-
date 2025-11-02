@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bg.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block css_tags %}{% endblock css_tags %}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+
+
+<body>
+    <header>
+        {% block navbar %}
+
+        {% endblock %}
+        <!-- <nav>
+            <div class="nav-left">
+                <h1>Sheep Ai</h1>
+                <ul class="main-links">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li>
+                        <select id="history_category" name="history_category" required>
+                            <option value="" disabled selected>History ▼</option>
+                            <option value="general">News</option>
+                            <option value="games">Weather</option>
+                            <option value="films">Crypto</option>
+                            <option value="computer">A.I</option>
+                        </select>
+                    </li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                </ul>
+            </div>
+
+            <ul class="auth-links">
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('signup') }}">SignUp</a></li>
+            </ul>
+        </nav> -->
+    </header>
+    <main>
+        {% block body %}
+        {% endblock %}
+    </main>
+        <footer>
+        <div class="footer-left">
+            <span>© SYED HASEEB SHAH</span>
+        </div>
+        <div class="footer-center">
+            <a href="https://instagram.com/hxseeb._19" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/syedhaseebshah19/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://youtube.com/@codingsheep17" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://github.com/codingsheep17" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <div class="footer-right">
+            <span>codingsheep17@gmail.com</span>
+        </div>
+    </footer>
+</body>
+
+
+</html>
